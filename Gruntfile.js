@@ -166,15 +166,13 @@ module.exports = function(grunt) {
       function finished(err, result, code) {
         // Ignore errors
         if(err) {
-          console.log(result.stderr);
-          next(err);
           return done(err);
         }
 
         // Wait so that git has time to delete index.lock (potentially flaky!)
         setTimeout(function() {
           next(null);
-        }, 100);
+        }, 500);
       }
     }, added);
 
